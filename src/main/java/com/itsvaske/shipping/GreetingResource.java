@@ -1,16 +1,39 @@
 package com.itsvaske.shipping;
 
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import com.itsvaske.shipping.model.Container;
+import com.itsvaske.shipping.model.Ship;
+import com.itsvaske.shipping.services.ContainerService;
+import com.itsvaske.shipping.services.ShipService;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 
-@Path("/hello")
+import java.util.List;
+
+@Path("/ship")
 public class GreetingResource {
 
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String hello() {
-        return "Hello from RESTEasy Reactive";
-    }
+    @Inject
+    ShipService shipService;
+    @Inject
+    ContainerService containerService;
+
+   @POST
+   @Path("/addContainer")
+   @Consumes(MediaType.APPLICATION_JSON)
+   public Response addContainer(Container container) {
+        Container c = containerService.addContainer(container);
+
+        return Response.ok().entity(c).build();
+   }
+
+   @GET
+    @Path("/getAllContainers")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response getAllContainers() {
+        List<Container> containers = containerService.getAllContainers();
+
+        return Response.ok().entity(containers).build();
+   }
 }
