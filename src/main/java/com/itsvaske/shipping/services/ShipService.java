@@ -16,7 +16,7 @@ import java.util.List;
 public class ShipService {
 
     @Inject
-    private EntityManager em;
+    EntityManager em;
 
     @Transactional
     public Ship addShipDB(Ship ship){

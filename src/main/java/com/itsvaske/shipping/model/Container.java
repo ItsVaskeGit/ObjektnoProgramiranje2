@@ -4,7 +4,8 @@ import jakarta.persistence.*;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "getAllContainers", query = "SELECT c FROM Container c")
+        @NamedQuery(name = Container.GET_ALL_CONTAINERS, query = "SELECT c FROM Container c"),
+        @NamedQuery(name = "getContainersForShip", query = "Select c from Container c")
 })
 public class Container {
 
