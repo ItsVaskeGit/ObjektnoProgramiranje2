@@ -7,12 +7,14 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
-@Path("/countryProxy")
+import java.util.List;
+
+@Path("/api/v3")
 @Produces(MediaType.APPLICATION_JSON)
-@RegisterRestClient(baseUri = "https://date.nager.at/api/v3/AvailableCountries")
+@RegisterRestClient(baseUri = "https://date.nager.at")
 public interface CountryProxy {
 
     @GET
-    @Path("/allCountries")
-    Country get();
+    @Path("/AvailableCountries")
+    List<Country> get();
 }
