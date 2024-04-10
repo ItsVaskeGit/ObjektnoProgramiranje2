@@ -1,12 +1,16 @@
 package com.itsvaske.shipping.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = Country.GET_ALL_COUNTRIES, query = "select c from Country c"),
+        @NamedQuery(name = Country.GET_COUNTRY_BY_CODE, query = "select c from Country c where c.countryCode =: countryCode")
+})
 public class Country {
+
+    public static final String GET_ALL_COUNTRIES = "getAllCountries";
+    public static final String GET_COUNTRY_BY_CODE = "getCountryByCode";
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Country_seq")
