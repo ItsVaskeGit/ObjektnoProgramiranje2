@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @NamedQueries({
         @NamedQuery(name = Equipment.GET_ALL_EQUIPMENT, query = "select e from Equipment e"),
-        @NamedQuery(name = Equipment.GET_EQUIPMENT_BY_SHIP, query = "select e from Equipment e where e.ship =: id")
+        @NamedQuery(name = Equipment.GET_EQUIPMENT_BY_SHIP, query = "select e from Equipment e where e.ship.id =: id")
 })
 public class Equipment {
 
