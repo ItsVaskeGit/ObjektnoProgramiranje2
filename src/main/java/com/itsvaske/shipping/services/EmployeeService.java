@@ -135,12 +135,12 @@ public class EmployeeService {
         return Response.ok().entity(cornelians).build();
     }
 
-    @GET
-    @Path("/addEmployee")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response addEmployee(Employee e) {
-        Employee em = addEmployeeDB(e);
-
-        return Response.ok().entity(em).build();
-    }
+//    @GET
+//    @Path("/addEmployee")
+//    @Consumes(MediaType.APPLICATION_JSON)
+//    public Response addEmployee(Employee e) {
+//        Employee em = addEmployeeDB(e);
+//
+//        return Response.ok().entity(em).build();
+//    }
 }
