@@ -1,5 +1,6 @@
 package com.itsvaske.shipping.services;
 
+import com.itsvaske.shipping.model.Country;
 import com.itsvaske.shipping.model.Ship;
 import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Inject;
@@ -39,6 +40,11 @@ public class ShipService {
     @Inject
     EntityManager em;
 
+    private Country arrivalCountry;
+    private Country departureCountry;
+    private Country registrationCountry;
+    private String type;
+
     @Transactional
     public Ship addShipDB(Ship ship){
         return em.merge(ship);
@@ -63,5 +69,37 @@ public class ShipService {
     public Response addShip(Ship ship) {
         Ship s = addShipDB(ship);
         return Response.ok().entity(s).build();
+    }
+
+    public Country getArrivalCountry() {
+        return arrivalCountry;
+    }
+
+    public void setArrivalCountry(Country arrivalCountry) {
+        this.arrivalCountry = arrivalCountry;
+    }
+
+    public Country getDepartureCountry() {
+        return departureCountry;
+    }
+
+    public void setDepartureCountry(Country departureCountry) {
+        this.departureCountry = departureCountry;
+    }
+
+    public Country getRegistrationCountry() {
+        return registrationCountry;
+    }
+
+    public void setRegistrationCountry(Country registrationCountry) {
+        this.registrationCountry = registrationCountry;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

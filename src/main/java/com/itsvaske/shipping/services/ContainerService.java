@@ -5,10 +5,7 @@ import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
@@ -30,6 +27,10 @@ public class ContainerService {
         return em.createNamedQuery(Container.GET_ALL_CONTAINERS, Container.class).getResultList();
     }
 
+    public List<Container> getAllContainersForShipDB(int id) {
+        return em.createNamedQuery(Container.GET_CONTAINERS_FOR_SHIP, Container.class).setParameter("id", id).getResultList();
+    }
+
     @POST
     @Path("/addContainer")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -48,5 +49,12 @@ public class ContainerService {
         return Response.ok().entity(containers).build();
     }
 
+    @GET
+    @Path("/getContainersForShip")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response getContainersForShip(@QueryParam(value = "id") int id) {
+        List<Container> containersForShip = getAllContainersForShipDB(id);
 
+        return Response.ok().entity(containersForShip).build();
+    }
 }

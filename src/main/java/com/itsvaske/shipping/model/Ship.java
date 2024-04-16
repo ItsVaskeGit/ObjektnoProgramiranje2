@@ -6,7 +6,7 @@ import java.util.Set;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "getAllShips", query = "select s from Ship s")
+        @NamedQuery(name = Ship.GET_ALL_SHIPS, query = "select s from Ship s")
 })
 public class Ship {
     
@@ -21,6 +21,14 @@ public class Ship {
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "ship_id")
     private Set<Equipment> equipment;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "ship_id")
+    private Set<Employee> employees;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "ship_id")
+    private Set<Container> containers;
 
     public String getName() {
         return name;
