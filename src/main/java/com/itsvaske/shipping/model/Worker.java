@@ -11,7 +11,14 @@ public class Worker {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Worker_seq")
     private Long id;
 
+    private String firstName;
+    private String lastName;
+    private long JMBG;
+    private int skillLevel;
     private int workTime;
+    @ManyToOne
+    private EmployeeRole employeeRole;
+
     @ManyToOne
     private Employee employee;
 

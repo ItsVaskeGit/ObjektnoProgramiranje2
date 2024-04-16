@@ -1,23 +1,33 @@
 package com.itsvaske.shipping.model;
 
 import jakarta.persistence.*;
+import jdk.jfr.Name;
 
 import java.util.Set;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = Employee.GET_ALL_EMPLOYEES, query = "select e from Employee e"),
-        @NamedQuery(name = Employee.GET_EMPLOYEES_BY_SHIP, query = "select e from Employee e where e.ship.id =: ship_id"),
-        @NamedQuery(name = Employee.GET_WORKERS, query = "select e from Employee e, Worker w where w.employee.id = e.id"),
-        @NamedQuery(name = Employee.GET_OFFICERS, query = "select e from Employee e, Officer c where c.employees.id = e.id"),
-        @NamedQuery(name = Employee.GET_MACHINISTS, query = "select e from Employee e, Machinist m where m.employees.id = e.id"),
-        @NamedQuery(name = Employee.GET_ELECTRICIANS, query = "select e from Employee e, Electirician el where el.employees.id = e.id"),
-        @NamedQuery(name = Employee.GET_CORNELIANS, query = "select e from Employee e, Cornelian c where c.employees.id = e.id")
+        @NamedQuery(name = Employee.GET_EMPLOYEE_ID_BY_SHIP, query = "select e.id from Employee e where e.ship.id =: ship_id"),
+        @NamedQuery(name = Employee.GET_WORKERS_BY_SHIP, query = "select w from Worker w where w.employee.id =: id"),
+        @NamedQuery(name = Employee.GET_OFFICERS_BY_SHIP, query = "select o from Officer o where o.employees.id =: id"),
+        @NamedQuery(name = Employee.GET_MACHINISTS_BY_SHIP, query = "select m from Machinist m where m.employees.id = :id"),
+        @NamedQuery(name = Employee.GET_ELECTRICIANS_BY_SHIP, query = "select e from Electirician e where e.employees.id = :id"),
+        @NamedQuery(name = Employee.GET_CORNELIANS_BY_SHIP, query = "select c from Cornelian c where c.employees.id = :id"),
+        @NamedQuery(name = Employee.GET_WORKERS, query = "select w from Employee e, Worker w where w.employee.id = e.id"),
+        @NamedQuery(name = Employee.GET_OFFICERS, query = "select c from Employee e, Officer c where c.employees.id = e.id"),
+        @NamedQuery(name = Employee.GET_MACHINISTS, query = "select m from Employee e, Machinist m where m.employees.id = e.id"),
+        @NamedQuery(name = Employee.GET_ELECTRICIANS, query = "select el from Employee e, Electirician el where el.employees.id = e.id"),
+        @NamedQuery(name = Employee.GET_CORNELIANS, query = "select c from Employee e, Cornelian c where c.employees.id = e.id")
 })
 public class Employee {
 
-    public static final String GET_ALL_EMPLOYEES = "getAllEmployees";
-    public static final String GET_EMPLOYEES_BY_SHIP = "getEmployeesByShip";
+    public static final String GET_EMPLOYEE_ID_BY_SHIP = "getEmployeesByShip";
+    public static final String GET_WORKERS_BY_SHIP = "getWorkersByShip";
+    public static final String GET_OFFICERS_BY_SHIP = "getOfficersByShip";
+    public static final String GET_MACHINISTS_BY_SHIP = "getMachinistsByShip";
+    public static final String GET_ELECTRICIANS_BY_SHIP = "getElectriciansByShip";
+    public static final String GET_CORNELIANS_BY_SHIP = "getCorneliansByShip";
+
     public static final String GET_WORKERS = "getWorkers";
     public static final String GET_OFFICERS = "getOfficers";
     public static final String GET_MACHINISTS = "getMachinists";
@@ -26,11 +36,6 @@ public class Employee {
 
     @Id
     private Long id;
-
-    private String firstName;
-    private String lastName;
-    private long JMBG;
-    private int skillLevel;
 
     @ManyToOne
     Ship ship;
@@ -63,43 +68,4 @@ public class Employee {
         return id;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public long getJMBG() {
-        return JMBG;
-    }
-
-    public void setJMBG(long JMBG) {
-        this.JMBG = JMBG;
-    }
-
-    public int getSkillLevel() {
-        return skillLevel;
-    }
-
-    public void setSkillLevel(int skillLevel) {
-        this.skillLevel = skillLevel;
-    }
-
-    public Ship getShip() {
-        return ship;
-    }
-
-    public void setShip(Ship ship) {
-        this.ship = ship;
-    }
 }

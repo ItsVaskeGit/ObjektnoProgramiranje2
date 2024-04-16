@@ -12,6 +12,14 @@ public class Machinist {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Machinist_seq")
     private Long id;
 
+    private String firstName;
+    private String lastName;
+    private long JMBG;
+    private int skillLevel;
+
+    @ManyToOne
+    private EmployeeRole employeeRole;
+
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "machinist_id")
     private Set<Repair> repairs;
