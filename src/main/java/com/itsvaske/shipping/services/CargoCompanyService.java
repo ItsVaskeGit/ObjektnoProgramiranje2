@@ -1,18 +1,14 @@
 package com.itsvaske.shipping.services;
 
 import com.itsvaske.shipping.model.CargoCompany;
-import com.itsvaske.shipping.model.Contract;
 import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
-import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.Path;
 
 import java.util.List;
 
 @Dependent
-@Path("/cargocompany")
 public class CargoCompanyService {
 
     @Inject
@@ -28,32 +24,5 @@ public class CargoCompanyService {
 
     public CargoCompany addCompanyDB(CargoCompany cargoCompany) {
         return em.merge(cargoCompany);
-    }
-
-    @GET
-    @Path("/getAllCompanies")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response getAllContracts() {
-        List<CargoCompany> companies = getAllCargoCompaniesDB();
-
-        return Response.ok().entity(companies).build();
-    }
-
-    @GET
-    @Path("/getContractsByNumber")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response getContractsByNumber(@QueryParam(value = "id") int id) {
-        List<CargoCompany> companies = getContractsByNumberDB(id);
-
-        return Response.ok().entity(companies).build();
-    }
-
-    @POST
-    @Path("/getContractsByNumber")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response addCompany(CargoCompany cargoCompany) {
-        CargoCompany company = addCompanyDB(cargoCompany);
-
-        return Response.ok().entity(company).build();
     }
 }
