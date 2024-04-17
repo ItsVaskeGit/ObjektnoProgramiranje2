@@ -35,6 +35,7 @@ public class Employee {
     public static final String GET_CORNELIANS = "getCornelians";
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Employee_seq")
     private Long id;
 
     @ManyToOne
