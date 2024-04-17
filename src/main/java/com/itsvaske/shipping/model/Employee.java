@@ -1,7 +1,6 @@
 package com.itsvaske.shipping.model;
 
 import jakarta.persistence.*;
-import jdk.jfr.Name;
 
 import java.util.Set;
 
@@ -41,6 +40,9 @@ public class Employee {
     @ManyToOne
     Ship ship;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private IPLog ipLog;
+
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "employee_id")
     private Set<Worker> workers;
@@ -69,4 +71,59 @@ public class Employee {
         return id;
     }
 
+    public Ship getShip() {
+        return ship;
+    }
+
+    public void setShip(Ship ship) {
+        this.ship = ship;
+    }
+
+    public IPLog getIpLog() {
+        return ipLog;
+    }
+
+    public void setIpLog(IPLog ipLog) {
+        this.ipLog = ipLog;
+    }
+
+    public Set<Worker> getWorkers() {
+        return workers;
+    }
+
+    public void setWorkers(Set<Worker> workers) {
+        this.workers = workers;
+    }
+
+    public Set<Officer> getOfficers() {
+        return officers;
+    }
+
+    public void setOfficers(Set<Officer> officers) {
+        this.officers = officers;
+    }
+
+    public Set<Machinist> getMachinists() {
+        return machinists;
+    }
+
+    public void setMachinists(Set<Machinist> machinists) {
+        this.machinists = machinists;
+    }
+
+    public Set<Electirician> getElectiricians() {
+        return electiricians;
+    }
+
+    public void setElectiricians(Set<Electirician> electiricians) {
+        this.electiricians = electiricians;
+    }
+
+    public Set<Cornelian> getCornelians() {
+        return cornelians;
+    }
+
+    public void setCornelians(Set<Cornelian> cornelians) {
+        this.cornelians = cornelians;
+    }
 }
