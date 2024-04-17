@@ -145,7 +145,8 @@ public class EmployeeREST {
                             return Response.ok().entity(off).entity(l).build();
                         case "worker":
                             Worker w = employeeService.addWorkerDB(objectMapper.readValue(json, Worker.class));
-                            Employee lo = objectMapper.readValue(json, Employee.class);lo.setIpLog(ipLog);
+                            Employee lo = objectMapper.readValue(json, Employee.class);
+                            lo.setIpLog(ipLog);
                             employeeService.addEmployeeDB(lo);
                             return Response.ok().entity(w).entity(lo).build();
                     }
