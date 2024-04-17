@@ -18,6 +18,12 @@ public class Contract {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Contract_seq")
     private Long id;
 
+    @ManyToOne
+    private CargoCompany cargoCompany;
+
+    @ManyToOne
+    private ShipCompany shipCompany;
+
     private int contractNumber;
     private int price;
     private Date signDate;
