@@ -17,14 +17,14 @@ public class Machinist {
     private long JMBG;
     private int skillLevel;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private EmployeeRole employeeRole;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "machinist_id")
     private Set<Repair> repairs;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Employee employees;
 
     public void setId(Long id) {

@@ -13,10 +13,10 @@ public class Electirician {
     private String lastName;
     private long JMBG;
     private int skillLevel;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private EmployeeRole employeeRole;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Employee employees;
 
     public void setId(Long id) {

@@ -40,7 +40,7 @@ public class EmployeeRoleREST {
     @Path("/getByDescription")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response getRolesByDescription(@QueryParam(value = "description")String description) {
-        List<EmployeeRole> roles = employeeRoleService.getEmployeeRoleByDescription(description);
+        List<EmployeeRole> roles = employeeRoleService.getEmployeeRoleByDescription(description.toLowerCase());
 
         return Response.ok().entity(roles).build();
     }

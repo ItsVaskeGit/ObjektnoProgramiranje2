@@ -18,10 +18,10 @@ public class Contract {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Contract_seq")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private CargoCompany cargoCompany;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private ShipCompany shipCompany;
 
     private int contractNumber;

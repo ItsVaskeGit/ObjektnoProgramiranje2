@@ -10,6 +10,7 @@ import java.util.Date;
 
 @Entity
 public class IPLog {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Equipment_seq")
     @JsonIgnore

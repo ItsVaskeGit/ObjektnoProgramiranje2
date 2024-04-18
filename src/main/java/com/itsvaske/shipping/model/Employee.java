@@ -37,7 +37,7 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Employee_seq")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Ship ship;
 
     @OneToOne(cascade = CascadeType.ALL)

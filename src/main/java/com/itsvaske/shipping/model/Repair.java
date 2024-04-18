@@ -20,7 +20,7 @@ public class Repair {
 
     private String description;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Machinist machinist;
 
     public void setId(Long id) {

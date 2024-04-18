@@ -17,7 +17,7 @@ public class Equipment {
     private Long id;
 
     private String description;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Ship ship;
     
     public void setId(Long id) {

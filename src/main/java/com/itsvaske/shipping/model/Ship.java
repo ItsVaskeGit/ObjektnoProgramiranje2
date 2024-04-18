@@ -14,7 +14,7 @@ public class Ship {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Ship_seq")
-    public Long id;
+    private Long id;
 
     private String name;
     private int capacity;
@@ -52,5 +52,13 @@ public class Ship {
 
     public void setEquipment(Set<Equipment> equipment) {
         this.equipment = equipment;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

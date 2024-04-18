@@ -2,10 +2,13 @@ package com.itsvaske.shipping.model;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+import java.util.Objects;
+
 @Entity
 @NamedQueries({
         @NamedQuery(name = Log.GET_ALL_LOGS, query = "select l from Log l"),
-        @NamedQuery(name = Log.GET_LOG_BY_IP, query = "select l from Log l where l.ipLog.ipString = :ip"),
+        @NamedQuery(name = Log.GET_LOG_BY_IP, query = "select l from Log l where l.ipAddress = :ip"),
         @NamedQuery(name = Log.GET_LOG_BY_API, query = "select l from Log l where l.apiUsed = :api"),
         @NamedQuery(name = Log.GET_LOG_BY_ID, query = "select l from Log l where l.id = :id")
 })
@@ -20,10 +23,19 @@ public class Log {
     @GeneratedValue
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private IPLog ipLog;
+    private String dateAndTime;
+
+    String ipAddress;
 
     private String apiUsed;
+
+    public Log() {}
+
+    public Log(String dateAndTime, String ipAddress, String apiUsed) {
+        this.dateAndTime = dateAndTime;
+        this.ipAddress = ipAddress;
+        this.apiUsed = apiUsed;
+    }
 
     public void setId(Long id) {
         this.id = id;

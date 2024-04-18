@@ -19,7 +19,7 @@ public class Container {
     private int weight;
     private String company;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Ship ship;
 
     public void setId(Long id) {

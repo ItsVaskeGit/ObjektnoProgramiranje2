@@ -17,9 +17,9 @@ public class Cornelian {
     private long JMBG;
     private int skillLevel;
     private int drivingTime;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private EmployeeRole employeeRole;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Employee employees;
 
     public void setId(Long id) {

@@ -16,10 +16,10 @@ public class Worker {
     private long JMBG;
     private int skillLevel;
     private int workTime;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private EmployeeRole employeeRole;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Employee employee;
 
     public void setId(Long id) {
