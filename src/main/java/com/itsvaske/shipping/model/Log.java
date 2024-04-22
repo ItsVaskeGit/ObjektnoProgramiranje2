@@ -2,9 +2,6 @@ package com.itsvaske.shipping.model;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
-import java.util.Objects;
-
 @Entity
 @NamedQueries({
         @NamedQuery(name = Log.GET_ALL_LOGS, query = "select l from Log l"),

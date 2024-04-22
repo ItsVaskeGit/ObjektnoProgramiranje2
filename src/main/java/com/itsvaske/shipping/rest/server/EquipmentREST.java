@@ -1,7 +1,6 @@
 package com.itsvaske.shipping.rest.server;
 
 import com.itsvaske.shipping.logging.Loggable;
-import com.itsvaske.shipping.model.EmployeeRole;
 import com.itsvaske.shipping.model.Equipment;
 import com.itsvaske.shipping.services.EquipmentService;
 import jakarta.inject.Inject;

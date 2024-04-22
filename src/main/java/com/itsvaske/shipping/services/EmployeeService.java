@@ -1,7 +1,6 @@
 package com.itsvaske.shipping.services;
 
 import com.itsvaske.shipping.model.*;
-import io.quarkus.runtime.Startup;
 import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;

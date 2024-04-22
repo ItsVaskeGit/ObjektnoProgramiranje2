@@ -2,8 +2,6 @@ package com.itsvaske.shipping.model;
 
 import jakarta.persistence.*;
 
-import java.util.Set;
-
 @Entity
 @NamedQueries({
         @NamedQuery(name = EmployeeRole.GET_ALL_EMPLOYEE_ROLES, query = "select e from EmployeeRole e"),

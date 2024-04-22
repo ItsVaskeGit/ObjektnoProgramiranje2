@@ -2,8 +2,6 @@ package com.itsvaske.shipping.model;
 
 import jakarta.persistence.*;
 
-import java.util.Set;
-
 @Entity
 public class Worker {
 

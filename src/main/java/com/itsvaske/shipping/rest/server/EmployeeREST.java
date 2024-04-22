@@ -11,7 +11,6 @@ import com.itsvaske.shipping.proxies.IPClient;
 import com.itsvaske.shipping.services.EmployeeRoleService;
 import com.itsvaske.shipping.services.EmployeeService;
 import jakarta.inject.Inject;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;

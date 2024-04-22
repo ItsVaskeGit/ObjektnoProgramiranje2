@@ -1,9 +1,7 @@
 package com.itsvaske.shipping.services;
 
-import com.itsvaske.shipping.model.Country;
 import com.itsvaske.shipping.model.EmployeeRole;
 import io.quarkus.runtime.Startup;
-import io.quarkus.scheduler.Scheduled;
 import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
