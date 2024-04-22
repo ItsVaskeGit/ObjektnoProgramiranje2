@@ -1,5 +1,6 @@
 package com.itsvaske.shipping.rest.server;
 
+import com.itsvaske.shipping.logging.Loggable;
 import com.itsvaske.shipping.model.EmployeeRole;
 import com.itsvaske.shipping.services.EmployeeRoleService;
 import jakarta.inject.Inject;
@@ -12,6 +13,7 @@ import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 
+@Loggable
 @Path("/api/employeeroles")
 public class EmployeeRoleREST {
 

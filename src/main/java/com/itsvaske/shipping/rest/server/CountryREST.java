@@ -1,5 +1,6 @@
 package com.itsvaske.shipping.rest.server;
 
+import com.itsvaske.shipping.logging.Loggable;
 import com.itsvaske.shipping.model.Country;
 import com.itsvaske.shipping.proxies.CountryProxy;
 import com.itsvaske.shipping.services.CountryService;
@@ -17,6 +18,7 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 import java.util.ArrayList;
 import java.util.List;
 
+@Loggable
 @Path("/api/country")
 public class CountryREST {
 

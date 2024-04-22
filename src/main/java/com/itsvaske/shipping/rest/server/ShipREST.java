@@ -1,5 +1,6 @@
 package com.itsvaske.shipping.rest.server;
 
+import com.itsvaske.shipping.logging.Loggable;
 import com.itsvaske.shipping.model.Ship;
 import com.itsvaske.shipping.services.ShipService;
 import jakarta.inject.Inject;
@@ -9,6 +10,7 @@ import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 
+@Loggable
 @Path("/api/ship")
 public class ShipREST {
 

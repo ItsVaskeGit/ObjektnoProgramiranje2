@@ -1,9 +1,8 @@
 package com.itsvaske.shipping.rest.server;
 
-import com.itsvaske.shipping.interfaces.LogMechanism;
+import com.itsvaske.shipping.logging.Loggable;
 import com.itsvaske.shipping.model.CargoCompany;
 import com.itsvaske.shipping.services.CargoCompanyService;
-import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -11,6 +10,7 @@ import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 
+@Loggable
 @Path("/api/cargocompany")
 public class CargoCompanyREST {
 

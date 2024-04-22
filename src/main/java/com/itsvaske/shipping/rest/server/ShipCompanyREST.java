@@ -1,5 +1,6 @@
 package com.itsvaske.shipping.rest.server;
 
+import com.itsvaske.shipping.logging.Loggable;
 import com.itsvaske.shipping.model.Contract;
 import com.itsvaske.shipping.model.Ship;
 import com.itsvaske.shipping.model.ShipCompany;
@@ -11,6 +12,7 @@ import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 
+@Loggable
 @Path("/api/shipcompany")
 public class ShipCompanyREST {
 

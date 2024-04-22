@@ -1,16 +1,11 @@
 package com.itsvaske.shipping.services;
 
-import com.itsvaske.shipping.interfaces.LogMechanism;
 import com.itsvaske.shipping.model.Log;
-import io.vertx.ext.web.RoutingContext;
-import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Inject;
-import jakarta.interceptor.InvocationContext;
 import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @Dependent
@@ -19,6 +14,7 @@ public class LogService {
     @Inject
     private EntityManager em;
 
+    @Transactional
     public Log addLog(Log log) {
         return em.merge(log);
     }

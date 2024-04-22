@@ -1,5 +1,6 @@
 package com.itsvaske.shipping.rest.server;
 
+import com.itsvaske.shipping.logging.Loggable;
 import com.itsvaske.shipping.model.EmployeeRole;
 import com.itsvaske.shipping.model.Equipment;
 import com.itsvaske.shipping.services.EquipmentService;
@@ -13,6 +14,7 @@ import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 
+@Loggable
 @Path("/api/equipment")
 public class EquipmentREST {
 

@@ -5,11 +5,13 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.itsvaske.shipping.logging.Loggable;
 import com.itsvaske.shipping.model.*;
 import com.itsvaske.shipping.proxies.IPClient;
 import com.itsvaske.shipping.services.EmployeeRoleService;
 import com.itsvaske.shipping.services.EmployeeService;
 import jakarta.inject.Inject;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -17,6 +19,7 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import java.util.List;
 
+@Loggable
 @Path("/api/employees")
 public class EmployeeREST {
 
