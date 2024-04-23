@@ -33,4 +33,14 @@ public class ShipREST {
         Ship s = shipService.addShipDB(ship);
         return Response.ok().entity(s).build();
     }
+
+    @GET
+    @Path("/getAllShipsByCountryOfRegistration")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getShipsByCountryOfRegistration(@QueryParam("name")String name) {
+        List<Ship> ships = shipService.getAllShipsByCountryOfRegistration(name);
+
+        return Response.ok().entity(ships).build();
+    }
 }

@@ -6,11 +6,15 @@ import java.util.Set;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = Ship.GET_ALL_SHIPS, query = "select s from Ship s")
+        @NamedQuery(name = Ship.GET_ALL_SHIPS, query = "select s from Ship s"),
+        @NamedQuery(name = Ship.GET_SHIP_BY_ID, query = "select s from Ship s where s.id = :id"),
+        @NamedQuery(name = Ship.GET_ALL_SHIPS_BY_COUNTRY_OF_REGISTRATION, query = "select s from Ship s where s.countryOfRegistration.name = :name")
 })
 public class Ship {
     
     public static final String GET_ALL_SHIPS = "getAllShips";
+    public static final String GET_SHIP_BY_ID = "getShipID";
+    public static final String GET_ALL_SHIPS_BY_COUNTRY_OF_REGISTRATION = "getALlShipsByCountryOfRegistration";
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Ship_seq")
@@ -18,6 +22,12 @@ public class Ship {
 
     private String name;
     private int capacity;
+
+    private String type;
+
+    @OneToOne
+    private Country countryOfRegistration;
+
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "ship_id")
     private Set<Equipment> equipment;
@@ -29,6 +39,10 @@ public class Ship {
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "ship_id")
     private Set<Container> containers;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "ship_id")
+    private Set<Contract> contracts;
 
     public String getName() {
         return name;
