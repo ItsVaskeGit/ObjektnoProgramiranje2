@@ -2,6 +2,8 @@ package com.itsvaske.shipping.model;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @NamedQueries({
         @NamedQuery(name = Country.GET_ALL_COUNTRIES, query = "select c from Country c"),
@@ -15,6 +17,9 @@ public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Country_seq")
     private Long id;
+
+    @ManyToMany(mappedBy = "countryOfArrival")
+    private Set<Ship> ships;
 
     private String countryCode;
 

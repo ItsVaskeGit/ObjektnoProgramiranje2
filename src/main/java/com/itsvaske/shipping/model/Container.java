@@ -2,6 +2,8 @@ package com.itsvaske.shipping.model;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @NamedQueries({
         @NamedQuery(name = Container.GET_ALL_CONTAINERS, query = "SELECT c FROM Container c"),
@@ -21,6 +23,10 @@ public class Container {
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Ship ship;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "ship_id")
+    private Set<Item> items;
 
     public void setId(Long id) {
         this.id = id;

@@ -28,6 +28,10 @@ public class Ship {
     @OneToOne
     private Country countryOfRegistration;
 
+    @ManyToMany
+    @JoinTable(name = "arrival_countries", joinColumns = {@JoinColumn(name = "ship_id")}, inverseJoinColumns = {@JoinColumn(name = "country_id")})
+    private Set<Country> countryOfArrival;
+
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "ship_id")
     private Set<Equipment> equipment;
