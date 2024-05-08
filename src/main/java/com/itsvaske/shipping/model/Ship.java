@@ -2,6 +2,7 @@ package com.itsvaske.shipping.model;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -28,9 +29,9 @@ public class Ship {
     @OneToOne
     private Country countryOfRegistration;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(name = "arrival_countries", joinColumns = {@JoinColumn(name = "ship_id")}, inverseJoinColumns = {@JoinColumn(name = "country_id")})
-    private Set<Country> countryOfArrival;
+    private Set<Country> countryOfArrival = new HashSet<>();
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "ship_id")
@@ -78,5 +79,13 @@ public class Ship {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Set<Country> getCountryOfArrival() {
+        return countryOfArrival;
+    }
+
+    public void setCountryOfArrival(Set<Country> countryOfArrival) {
+        this.countryOfArrival = countryOfArrival;
     }
 }
