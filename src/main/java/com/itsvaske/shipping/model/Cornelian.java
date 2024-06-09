@@ -20,6 +20,18 @@ public class Cornelian {
     @ManyToOne(cascade = CascadeType.ALL)
     private Employee employees;
 
+    public Cornelian(String firstName, String lastName, long JMBG, int skillLevel, int drivingTime, EmployeeRole employeeRole) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.JMBG = JMBG;
+        this.skillLevel = skillLevel;
+        this.drivingTime = drivingTime;
+        this.employeeRole = employeeRole;
+    }
+
+    public Cornelian() {
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
